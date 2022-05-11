@@ -340,6 +340,9 @@ void JPXStream::init()
 
 void JPXStreamPrivate::init2(OPJ_CODEC_FORMAT format, const unsigned char *buf, int length, bool indexed)
 {
+    rlbox::rlbox_sandbox<rlbox_noop_sandbox> sandbox;
+    sandbox.create_sandbox();
+    
     JPXData jpxData;
 
     jpxData.data = buf;
