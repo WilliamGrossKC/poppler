@@ -20,6 +20,12 @@
 #include "JPEG2000Stream.h"
 #include <openjpeg.h>
 
+#define RLBOX_USE_STATIC_CALLS() rlbox_noop_sandbox_lookup_symbol
+#define RLBOX_SINGLE_THREADED_INVOCATIONS
+// #include "rlbox_wasm2c_sandbox.hpp"
+#include "rlbox.hpp"
+#include "rlbox_noop_sandbox.hpp"
+
 #define OPENJPEG_VERSION_ENCODE(major, minor, micro) (((major)*10000) + ((minor)*100) + ((micro)*1))
 
 #ifdef OPJ_VERSION_MAJOR
