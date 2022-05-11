@@ -26,6 +26,8 @@
 #include "rlbox.hpp"
 #include "rlbox_noop_sandbox.hpp"
 
+using namespace rlbox;
+
 #define OPENJPEG_VERSION_ENCODE(major, minor, micro) (((major)*10000) + ((minor)*100) + ((micro)*1))
 
 #ifdef OPJ_VERSION_MAJOR
