@@ -111,7 +111,20 @@ void JPXStream::reset()
 void JPXStream::close()
 {
     if (priv->image != nullptr) {
-        opj_image_destroy(priv->image);
+        // NC
+        // May be a double or single pointer, not sure
+        opj_image_t **sand_pi_ptr = (opj_image_t **)priv->image;
+        // 1
+        // either 4 or 8 bytes for pointer
+        // Need to figure out if sandbox accepts objects
+        auto sand_pi = sandbox.malloc_in_sandbox<opj_image_t *>(4);
+        // May need to use std::
+        memcpy(sand_pi.unverified_safe_pointer_because(4, "writing to region"), sand_pi_ptr, 4);
+        
+        sandbox.invoke_sandbox_function(opj_image_destroy, sand_pi);
+        // NC  
+        
+        // opj_image_destroy(priv->image);
         priv->image = nullptr;
         priv->npixels = 0;
     }
