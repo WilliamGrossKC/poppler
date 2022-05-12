@@ -110,6 +110,11 @@ void JPXStream::reset()
 
 void JPXStream::close()
 {
+    //NC
+    rlbox::rlbox_sandbox<rlbox_noop_sandbox> sandbox;
+    sandbox.create_sandbox();
+    //NC
+    
     if (priv->image != nullptr) {
         // NC
         // May be a double or single pointer, not sure
@@ -124,6 +129,7 @@ void JPXStream::close()
         sandbox.invoke_sandbox_function(opj_image_destroy, sand_pi);
         // NC  
         
+        // Next line is commented out for sandbox
         // opj_image_destroy(priv->image);
         priv->image = nullptr;
         priv->npixels = 0;
