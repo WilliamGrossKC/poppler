@@ -14,6 +14,7 @@
      f(int, smaskInData, FIELD_NORMAL, ##__VA_ARGS__) g() \
      // add void later
 
+//May need to add underscore ts for opjs
 #define sandbox_fields_reflection_openjpeg_class_opj_image(f, g, ...)  \
      f(OPJ_UINT32, x0, FIELD_NORMAL, ##__VA_ARGS__) g() \
      f(OPJ_UINT32, y0, FIELD_NORMAL, ##__VA_ARGS__) g() \
