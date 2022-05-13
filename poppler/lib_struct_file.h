@@ -2,6 +2,8 @@
 #define _LIB_STRUCT_FILE_H
 #include "JPEG2000Stream.h"
 
+// https://github.com/uclouvain/openjpeg/blob/0bda7188b7b545232a341f1d978b1e4feda46fc2/src/lib/openmj2/openjpeg.h
+
 #define sandbox_fields_reflection_openjpeg_class_JPXStreamPrivate(f, g, ...)         \
      f(opj_image_t *, image, FIELD_NORMAL, ##__VA_ARGS__) g() \
      f(int, counter, FIELD_NORMAL, ##__VA_ARGS__) g() \
